@@ -2,7 +2,7 @@
 # LICENSE4J Licensing Library
 
 
-[LICENSE4J](htps://www.license4j.com/) is a comprehensive **licensing library** and **license server** designed to streamline the software licensing process for developers. It facilitates the straightforward integration of licensing features into Java applications, allowing developers to implement necessary licensing functionality with minimal lines of code.
+[LICENSE4J](https://www.license4j.com "LICENSE4J Homepage") is a comprehensive **licensing library** and **license server** designed to streamline the software licensing process for developers. It facilitates the straightforward integration of licensing features into Java applications, allowing developers to implement necessary licensing functionality with minimal lines of code.
 
 One of the standout features of LICENSE4J is its user-friendly, web-based License Manager running on top of the license server. This powerful tool is accessible from both desktop and mobile devices, making it convenient for users to manage licenses anytime and anywhere. The License Manager provides a seamless experience, enabling users to easily generate, validate, and manage licenses, thereby enhancing the overall efficiency of the licensing process.
 
@@ -14,6 +14,8 @@ For example, you can choose trial licenses, which allow for a limited-time evalu
 
 Moreover, the Licensing Library allows the use of USB license dongles instead of relying on device IDs generated from hardware. These dongles serve as physical keys to enable software access. This comprehensive approach ensures that businesses can tailor their licensing strategies according to operational needs, budget considerations, and usage patterns.
 
+## Quick Start
+
 ## Getting Started
 The Licensing Library can be found on [LICENSE4J @ Maven Central](https://central.sonatype.com/artifact/com.license4j/licensing-library), which allows developers to seamlessly integrate it into their projects. This library can be easily included by using either Maven or Gradle as your build automation tools. To add the Licensing Library to your project, simply include the appropriate dependency in your project's configuration file, following the guidelines provided in the documentation. This enables you to leverage the library's features without any hassle, ensuring a smooth development process.
 
@@ -24,7 +26,7 @@ The Licensing Library can be found on [LICENSE4J @ Maven Central](https://centra
     </dependency>
 
 ## Validate a License
-To validate a license, you simply need to configure the necessary properties within your application and then invoke the validate method. This process checks the integrity and authenticity of the license. If the validation is successful, the system will automatically save the relevant license information. This can be stored either in a specified license file on disk, which can be easily accessed, or in the system registry if you are operating on a Windows platform.
+To validate a license, you simply need to configure the necessary properties within your application and then invoke the validate method. This process checks the integrity and authenticity of the license. If the validation is successful, the system will automatically save the relevant license information. This can be stored either in a specified license file on disk, which can be easily accessed, or in the system registry if you are operating on a Windows platform. See [quick start](https://www.license4j.com/documents/quickstart/) also.
 
     // Use builder to build the License object
     // The only required parameter is product
