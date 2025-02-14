@@ -25,7 +25,7 @@ The Licensing Library can be found on [LICENSE4J @ Maven Central](https://centra
         <version>5.0.1</version>
     </dependency>
 
-## Validate a License
+## Validate (activate) a License
 To validate a license, you simply need to configure the necessary properties within your application and then invoke the validate method. This process checks the integrity and authenticity of the license. If the validation is successful, the system will automatically save the relevant license information. This can be stored either in a specified license file on disk, which can be easily accessed, or in the system registry if you are operating on a Windows platform. See [quick start](https://www.license4j.com/documents/quickstart/) also.
 
     // Use builder to build the License object
@@ -44,3 +44,18 @@ To validate a license, you simply need to configure the necessary properties wit
     License.getInstance().getStatus();
 
     
+## Invalidate (deactivate) a License
+License invalidation is a crucial process in software licensing that involves deactivating a license key that has already been validated. This action is necessary in situations such as transferring software ownership, upgrading a license, or revoking access due to compliance issues.
+
+The method used to invalidate a license is `License.getInstance().invalidate()`. When this method is invoked, it accomplishes two important tasks: first, it invalidates the license, rendering it unusable for future access to the software. This ensures that the software can no longer be operated using that specific license key. Second, the method removes any associated saved license file from the local storage or deletes the license data from the system registry. This cleanup is essential to prevent any potential misuse or unauthorized access to the software.
+
+By implementing license invalidation, software developers can better manage their licensing systems, ensuring only authorized users have access to their products while maintaining compliance with licensing agreements.
+
+## Hardware, Virtualization Detection
+The License4J Licensing library offers advanced capabilities for detecting the hardware features of client systems. It gathers detailed information from various components, including the Central Processing Unit (CPU), Hard Disk Drive (HDD), disk partitions, the manufacturer of the hardware, and the mainboard specifications. 
+
+In addition to this hardware information, the library is capable of detecting whether the system is operating in a virtualization or containerized environment, which is essential for ensuring that licensing and usage compliance are maintained across different deployment scenarios. 
+
+Furthermore, License4J can identify many popular cloud service providers, allowing it to recognize environments such as Amazon EC2, Microsoft Azure, Google Cloud Platform, Oracle Cloud, Alibaba Cloud, DigitalOcean, and UpCloud. This functionality helps developers and organizations manage their licensing effectively in various deployment situations, whether on local hardware or in the cloud.
+
+See example repository: [https://github.com/license4j/license4j-hardware-virtualization-container-cloud-usb-detection](https://github.com/license4j/license4j-hardware-virtualization-container-cloud-usb-detection)
