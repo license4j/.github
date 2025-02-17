@@ -16,6 +16,7 @@ Moreover, the Licensing Library allows the use of USB license dongles instead of
 
 ## Getting Started
 [![Maven Central Version](https://img.shields.io/maven-central/v/com.license4j/licensing-library)](https://central.sonatype.com/artifact/com.license4j/licensing-library)
+[![javadoc](https://javadoc.io/badge2/com.license4j/licensing-library/javadoc.svg)](https://javadoc.io/doc/com.license4j/licensing-library)
 
 The Licensing Library can be found on [LICENSE4J @ Maven Central](https://central.sonatype.com/artifact/com.license4j/licensing-library), which allows developers to seamlessly integrate it into their projects. This library can be easily included by using either Maven or Gradle as your build automation tools. To add the Licensing Library to your project, simply include the appropriate dependency in your project's configuration file, following the guidelines provided in the documentation. This enables you to leverage the library's features without any hassle, ensuring a smooth development process.
 
