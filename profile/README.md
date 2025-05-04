@@ -52,6 +52,31 @@ The method used to invalidate a license is `License.getInstance().invalidate()`.
 
 By implementing license invalidation, software developers can better manage their licensing systems, ensuring only authorized users have access to their products while maintaining compliance with licensing agreements.
 
+The Licensing Library is designed to efficiently manage activated license data by providing the functionality to save and load this information from file stored on your computer's disk or directly from the Windows registry.  This streamlined process is entirely managed by the library itself, allowing you as a developer to avoid the complexities of implementing your own routines for saving and loading license files.  This means you can focus on other aspects of your application without worrying about the underlying mechanisms for license management.
+
+## License Loading/Saving on Disk or Windows Registry
+
+The `Builder` class offers two distinct methods for specifying the location of the license file.  **`file`** method allows users to define the exact path to the license file on their file system. **`registry`** method provides an option to set the location via the Windows registry, enabling integration with system-level configurations. These methods ensure flexibility in managing license files according to user preferences or system requirements.
+
+The license file saving feature is enabled by default. If you also utilize the **`registry`** method to define a Windows registry location, it will be applied on Windows systems when the software is executed.  This allows you to use both **`file`** and **registry** methods: you can save the license file on non-Windows systems while storing the license data in the registry on Windows systems.
+
+Both **`file`** and **`registry`** methods for license management are optional. If neither method is used, the default location will be utilized.
+
+**License File:** The default license file will be located in the current user's home folder, with the last eight characters of the product hash code appended to it. For example, if the product hash code is `94E1B381016BEE2CBC5F644B6F078C28` and the username is `john`, the default license file location on Windows would be `C:\Users\john\.6F078C28\license.l4j`. Similarly, on Linux and Mac systems, the location would be `/home/john/.6F078C28/license.l4j`.
+
+**License Registry:** If using the registry method, the defined location will be under `HKEY_CURRENT_USER\SOFTWARE\`. Both the key and value must be defined and separated with a double backslash (\\). For instance, if you use `MySoftware\\license`, the resulting location would be `HKEY_CURRENT_USER\SOFTWARE\MySoftware\license`.
+
+When the `validate()` method is invoked without providing a license key argument, it will initiate a search for any previously activated and stored license data. This data can be located on either the disk or in the registry, depending on the preferences specified in the builder method used during initialization. The validation process will check the integrity of the stored license information and confirm its validity. Notably, this validation does not require an active internet connection, making it a convenient choice for environments that are offline or have restricted internet access.
+
+In contrast, when the `validate("the-license-key")` method is called with a specific license key argument, the process takes a different route. This version of the method will establish a connection to the designated license server to validate the provided license key. It will attempt to both validate and activate the license remotely. If the activation is successful, the system will securely save the newly activated license data for future reference, again storing it either on disk or in the registry, as determined by the settings specified in the builder method. This ensures that the license can be easily accessed for subsequent validation without needing to connect to the internet again, assuming the licensing policy allows it.
+
+**An Example:**
+<pre>License.getInstance().getBuilder() .product("product-hash-code")
+		.file(System.getProperty("user.home") + "/MyProduct/license.l4j")
+		.registry(MyProduct\\license) 
+		.build();</pre>
+
+
 ## Hardware, Virtualization Detection
 The License4J Licensing library offers advanced capabilities for detecting the hardware features of client systems. It gathers detailed information from various components, including the Central Processing Unit (CPU), Hard Disk Drive (HDD), disk partitions, the manufacturer of the hardware, and the mainboard specifications. 
 
