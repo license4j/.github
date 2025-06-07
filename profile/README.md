@@ -27,7 +27,7 @@ The Licensing Library can be found on [LICENSE4J @ Maven Central](https://centra
     </dependency>
 
 ## Validate (activate) a License
-To validate a license, you simply need to configure the necessary properties within your application and then invoke the validate method. This process checks the integrity and authenticity of the license. If the validation is successful, the system will automatically save the relevant license information. This can be stored either in a specified license file on disk, which can be easily accessed, or in the system registry if you are operating on a Windows platform. See [quick start](https://www.license4j.com/documents/quickstart/) also.
+To validate a license, you simply need to configure the necessary properties within your application and then invoke the validate method. This process checks the integrity and authenticity of the license. If the validation is successful, the system will automatically save the relevant license information. This can be stored either in a specified license file on disk, which can be easily accessed, or in the system registry if you are operating on a Windows platform. See [quick start](https://www.license4j.com/documents/java-licensing-library/quick-start/) also.
 
     // Use builder to build the License object
     // The only required parameter is product
