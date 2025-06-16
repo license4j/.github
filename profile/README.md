@@ -23,7 +23,7 @@ The Licensing Library can be found on [LICENSE4J @ Maven Central](https://centra
     <dependency>
         <groupId>com.license4j</groupId>
         <artifactId>licensing-library</artifactId>
-        <version>5.0.1</version>
+        <version>5.0.3</version>
     </dependency>
 
 ## Validate (activate) a License
